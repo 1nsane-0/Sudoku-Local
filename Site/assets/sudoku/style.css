@@ -205,6 +205,13 @@ h3 {
     background: rgba(184, 255, 61, 0.08);
 }
 
+.local-runtime-note {
+    border-color: rgba(184, 255, 61, 0.38);
+    background:
+        linear-gradient(90deg, rgba(184, 255, 61, 0.08), rgba(32, 215, 255, 0.06)),
+        rgba(9, 19, 29, 0.74);
+}
+
 .hero-signal {
     display: grid;
     gap: 14px;

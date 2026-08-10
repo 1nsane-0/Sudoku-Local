@@ -151,31 +151,58 @@ h3 {
     line-height: 1.55;
 }
 
-.local-note {
-    max-width: 620px;
-    margin: 16px 0 0;
-    padding-left: 14px;
-    border-left: 2px solid var(--accent);
-    color: #a5afb9;
-    font-size: 15px;
-    line-height: 1.55;
-}
-
-.local-note a {
-    color: var(--lime);
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.local-note a:hover {
-    color: var(--text);
-}
-
 .role {
     margin-bottom: 14px;
     color: var(--accent);
     font-size: 24px;
     font-weight: 800;
+}
+
+.runtime-note {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    width: min(620px, 100%);
+    margin-top: 22px;
+    padding: 14px 16px;
+    border: 1px solid rgba(32, 215, 255, 0.36);
+    border-left: 3px solid var(--lime);
+    border-radius: 8px;
+    background: rgba(9, 19, 29, 0.72);
+}
+
+.runtime-note span {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--lime);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.runtime-note p {
+    margin: 0;
+    color: #a5afb9;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.runtime-note a {
+    flex: 0 0 auto;
+    padding: 9px 12px;
+    border: 1px solid rgba(184, 255, 61, 0.48);
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.runtime-note a:hover {
+    border-color: var(--lime);
+    background: rgba(184, 255, 61, 0.08);
 }
 
 .hero-signal {
@@ -535,6 +562,11 @@ code {
 
     .panel {
         padding: 14px;
+    }
+
+    .runtime-note {
+        align-items: flex-start;
+        flex-direction: column;
     }
 
     .preview-wrap {

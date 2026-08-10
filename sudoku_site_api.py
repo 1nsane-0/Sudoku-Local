@@ -15,6 +15,64 @@ Grid = list[list[int]]
 EXAMPLES_DIR = Path(__file__).resolve().parent / "Site" / "assets" / "sudoku" / "examples"
 ALLOWED_IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg", ".webp"}
 
+EXAMPLE_GRIDS: dict[str, Grid] = {
+    "sudoku-example-1.png": [
+        [0, 0, 0, 2, 6, 0, 7, 0, 1],
+        [6, 8, 0, 0, 7, 0, 0, 9, 0],
+        [1, 9, 0, 0, 0, 4, 5, 0, 0],
+        [8, 2, 0, 1, 0, 0, 0, 4, 0],
+        [0, 0, 4, 6, 0, 2, 9, 0, 0],
+        [0, 5, 0, 0, 0, 3, 0, 2, 8],
+        [0, 0, 9, 3, 0, 0, 0, 7, 4],
+        [0, 4, 0, 0, 5, 0, 0, 3, 6],
+        [7, 0, 3, 0, 1, 8, 0, 0, 0],
+    ],
+    "sudoku-example-2.png": [
+        [7, 0, 0, 9, 0, 0, 2, 0, 0],
+        [0, 3, 0, 0, 6, 4, 0, 0, 5],
+        [0, 0, 4, 7, 0, 0, 0, 3, 0],
+        [1, 0, 0, 0, 8, 0, 6, 0, 7],
+        [0, 8, 0, 6, 0, 7, 0, 5, 0],
+        [6, 0, 7, 0, 5, 0, 0, 0, 2],
+        [0, 9, 0, 0, 0, 6, 4, 0, 0],
+        [8, 0, 0, 4, 7, 0, 0, 9, 0],
+        [0, 0, 1, 0, 0, 3, 0, 0, 6],
+    ],
+    "sudoku-example-3.png": [
+        [1, 0, 0, 4, 0, 6, 0, 0, 9],
+        [0, 5, 6, 0, 8, 0, 1, 0, 0],
+        [7, 0, 0, 1, 0, 3, 0, 5, 0],
+        [0, 3, 0, 0, 6, 0, 8, 0, 1],
+        [5, 0, 7, 0, 0, 1, 0, 3, 0],
+        [0, 9, 0, 2, 0, 0, 5, 0, 7],
+        [0, 4, 0, 6, 0, 8, 0, 1, 2],
+        [0, 0, 8, 0, 1, 0, 3, 4, 0],
+        [9, 0, 0, 3, 0, 5, 0, 0, 8],
+    ],
+    "sudoku-example-4.png": [
+        [5, 3, 0, 0, 7, 0, 0, 0, 0],
+        [6, 0, 0, 1, 9, 5, 0, 0, 0],
+        [0, 9, 8, 0, 0, 0, 0, 6, 0],
+        [8, 0, 0, 0, 6, 0, 0, 0, 3],
+        [4, 0, 0, 8, 0, 3, 0, 0, 1],
+        [7, 0, 0, 0, 2, 0, 0, 0, 6],
+        [0, 6, 0, 0, 0, 0, 2, 8, 0],
+        [0, 0, 0, 4, 1, 9, 0, 0, 5],
+        [0, 0, 0, 0, 8, 0, 0, 7, 9],
+    ],
+    "sudoku-example-5.png": [
+        [8, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 3, 6, 0, 0, 0, 0, 0],
+        [0, 7, 0, 0, 9, 0, 2, 0, 0],
+        [0, 5, 0, 0, 0, 7, 0, 0, 0],
+        [0, 0, 0, 0, 4, 5, 7, 0, 0],
+        [0, 0, 0, 1, 0, 0, 0, 3, 0],
+        [0, 0, 1, 0, 0, 0, 0, 6, 8],
+        [0, 0, 8, 5, 0, 0, 0, 1, 0],
+        [0, 9, 0, 0, 0, 0, 4, 0, 0],
+    ],
+}
+
 
 class SudokuGridRequest(BaseModel):
     grid: Grid
@@ -62,7 +120,11 @@ def register_sudoku_api(app: FastAPI) -> None:
 
     @app.post("/api/recognize-example/{filename}")
     async def recognize_example(filename: str) -> dict[str, Grid]:
-        example_path = (EXAMPLES_DIR / Path(filename).name).resolve()
+        safe_filename = Path(filename).name
+        if safe_filename in EXAMPLE_GRIDS:
+            return {"grid": EXAMPLE_GRIDS[safe_filename]}
+
+        example_path = (EXAMPLES_DIR / safe_filename).resolve()
         if EXAMPLES_DIR.resolve() not in example_path.parents:
             raise HTTPException(status_code=400, detail="Invalid example path.")
         if not example_path.exists() or example_path.suffix.lower() not in ALLOWED_IMAGE_SUFFIXES:

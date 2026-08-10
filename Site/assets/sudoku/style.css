@@ -151,6 +151,26 @@ h3 {
     line-height: 1.55;
 }
 
+.local-note {
+    max-width: 620px;
+    margin: 16px 0 0;
+    padding-left: 14px;
+    border-left: 2px solid var(--accent);
+    color: #a5afb9;
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+.local-note a {
+    color: var(--lime);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.local-note a:hover {
+    color: var(--text);
+}
+
 .role {
     margin-bottom: 14px;
     color: var(--accent);

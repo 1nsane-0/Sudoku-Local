@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sudoku Solver</title>
+    <link rel="stylesheet" href="/assets/sudoku/style.css">
+</head>
+<body>
+    <main class="page-shell">
+        <header class="site-header">
+            <a class="brand" href="/">
+                <span class="brand-mark">MF</span>
+                <span class="brand-divider"></span>
+                <span>Michael Fomenko</span>
+            </a>
+            <nav class="site-nav" aria-label="Main navigation">
+                <a href="/#about">About</a>
+                <a href="/#projects">Projects</a>
+                <a href="/#skills">Skills</a>
+                <a href="/#contact">Contact</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div>
+                <p class="eyebrow">// Backtracking + Constraint Satisfaction Problem</p>
+                <h1>Sudoku Solver</h1>
+                <p class="role">Applied AI Demo · Backtracking + CSP</p>
+                <p class="intro">Upload a Sudoku image, verify the recognized grid, edit any OCR mistakes, and solve it with the same backtracking logic from the Python project.</p>
+            </div>
+            <div class="hero-signal" aria-hidden="true">
+                <span>// image.input</span>
+                <span>// grid.recognized</span>
+                <span>// solution.active</span>
+            </div>
+        </section>
+
+        <section class="workspace">
+            <div class="panel upload-panel">
+                <div class="step-heading">
+                    <span class="step-number">01</span>
+                    <div>
+                        <h2>Choose Image</h2>
+                        <p>Upload your own Sudoku or pick a prepared example.</p>
+                    </div>
+                </div>
+                <label class="drop-zone" for="imageInput">
+                    <input id="imageInput" type="file" accept="image/*">
+                    <span>Choose Sudoku Image</span>
+                    <small>Click or drop PNG, JPG, or JPEG here</small>
+                </label>
+
+                <div class="preview-wrap">
+                    <img id="preview" alt="">
+                </div>
+
+                <div class="examples">
+                    <div class="panel-heading">
+                        <h3>Try a Sample</h3>
+                        <span>One click setup</span>
+                    </div>
+                    <div id="examplesList" class="examples-list">
+                        <button class="example-button" data-filename="sudoku-example-1.png" data-src="/assets/sudoku/examples/sudoku-example-1.png">
+                            <img src="/assets/sudoku/examples/sudoku-example-1.png" alt="Example 01">
+                            <span>Example 01</span>
+                            <small>MEDIUM</small>
+                        </button>
+                        <button class="example-button" data-filename="sudoku-example-2.png" data-src="/assets/sudoku/examples/sudoku-example-2.png">
+                            <img src="/assets/sudoku/examples/sudoku-example-2.png" alt="Example 02">
+                            <span>Example 02</span>
+                            <small>MEDIUM</small>
+                        </button>
+                        <button class="example-button" data-filename="sudoku-example-3.png" data-src="/assets/sudoku/examples/sudoku-example-3.png">
+                            <img src="/assets/sudoku/examples/sudoku-example-3.png" alt="Example 03">
+                            <span>Example 03</span>
+                            <small>MEDIUM</small>
+                        </button>
+                        <button class="example-button" data-filename="sudoku-example-4.png" data-src="/assets/sudoku/examples/sudoku-example-4.png">
+                            <img src="/assets/sudoku/examples/sudoku-example-4.png" alt="Classic">
+                            <span>Classic</span>
+                            <small>EASY</small>
+                        </button>
+                        <button class="example-button" data-filename="sudoku-example-5.png" data-src="/assets/sudoku/examples/sudoku-example-5.png">
+                            <img src="/assets/sudoku/examples/sudoku-example-5.png" alt="Hard">
+                            <span>Hard</span>
+                            <small>HARD</small>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel board-panel">
+                <div class="panel-heading">
+                    <div class="step-heading compact">
+                        <span class="step-number">02</span>
+                        <div>
+                            <h2>Check Grid</h2>
+                            <p>Correct any digit before solving.</p>
+                        </div>
+                    </div>
+                    <span id="status">Waiting for image</span>
+                </div>
+
+                <div id="grid" class="sudoku-grid" aria-label="Editable Sudoku grid"></div>
+
+                <div class="actions">
+                    <button id="recognizeButton" class="button secondary" type="button">Recognize</button>
+                    <button id="solveButton" class="button primary" type="button">Solve</button>
+                    <button id="clearButton" class="button ghost" type="button">Clear</button>
+                </div>
+            </div>
+
+            <div class="panel board-panel">
+                <div class="panel-heading">
+                    <div class="step-heading compact">
+                        <span class="step-number">03</span>
+                        <div>
+                            <h2>Solution</h2>
+                            <p>The solved board appears here.</p>
+                        </div>
+                    </div>
+                    <span id="solutionStatus">No solution yet</span>
+                </div>
+                <div id="solutionGrid" class="sudoku-grid readonly" aria-label="Solved Sudoku grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/assets/sudoku/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Michael Fomenko - Applied AI Student</title>
+    <meta name="description" content="Portfolio of Michael Fomenko, an Applied AI student building practical AI, backend, automation, and computer vision projects.">
+    <link rel="stylesheet" href="/assets/portfolio/styles.css">
+</head>
+<body>
+    <main>
+        <header class="site-header">
+            <div class="header-inner">
+                <a class="identity" href="#top" aria-label="Michael Fomenko, home">
+                    <span class="monogram">MF</span>
+                    <span class="identity-rule" aria-hidden="true"></span>
+                    <span class="identity-name">Michael Fomenko</span>
+                </a>
+                <nav aria-label="Primary navigation">
+                    <a class="active" href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+        </header>
+
+        <section class="hero" id="top" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow">// Applied AI Student · Developer</p>
+                <h1 id="hero-title">Michael<br>Fomenko</h1>
+                <p class="role">Applied AI Student · Developer</p>
+                <p class="intro">I build practical AI tools, backend systems, and automation projects that turn ideas into working software.</p>
+                <div class="hero-actions">
+                    <a class="primary-cta" href="#projects">View projects</a>
+                    <a class="secondary-cta" href="/sudoku">Try Sudoku Solver</a>
+                </div>
+            </div>
+
+            <aside class="hero-panel" aria-label="Profile summary">
+                <div class="panel-row"><span>Focus</span><b>Applied AI</b></div>
+                <div class="panel-row"><span>Building</span><b>AI tools · Backend systems</b></div>
+                <div class="panel-row"><span>Currently</span><b>Python · Flask · Computer Vision</b></div>
+                <div class="radar-card" aria-hidden="true">
+                    <span>// model.active</span>
+                    <span>// systems.online</span>
+                    <span>// learning.continue()</span>
+                </div>
+            </aside>
+        </section>
+
+        <section class="content-section about-section" id="about" aria-labelledby="about-title">
+            <div class="section-label"><span>01</span> About</div>
+            <div class="about-grid">
+                <h2 id="about-title">I learn by building things that actually work.</h2>
+                <div class="about-copy">
+                    <p>I am an Applied AI student interested in the space where machine learning, backend engineering, automation, and real-world problem solving meet.</p>
+                    <p>My projects usually start with a practical problem: recognize a Sudoku from an image, automate a workflow, or run a useful service on my own hardware.</p>
+                    <dl class="facts">
+                        <div><dt>Current</dt><dd>Applied AI Student</dd></div>
+                        <div><dt>Focus</dt><dd>AI tools · Backend · Automation</dd></div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section projects-section" id="projects" aria-labelledby="projects-title">
+            <div class="section-heading-row">
+                <div>
+                    <div class="section-label"><span>02</span> Projects</div>
+                    <h2 id="projects-title">Small systems with a real purpose.</h2>
+                </div>
+                <p>Projects are shown as snapshots for now. Dedicated pages can be added later.</p>
+            </div>
+
+            <div class="project-grid">
+                <article class="project-card featured-project">
+                    <div class="project-topline">
+                        <span class="project-index">P/01</span>
+                        <span class="project-state">Live demo</span>
+                    </div>
+                    <div class="project-visual sudoku-visual" aria-hidden="true">
+                        <div class="mini-sudoku">
+                            <span>5</span><span></span><span></span><span>2</span><span></span><span></span><span>8</span><span></span><span>1</span>
+                            <span></span><span>7</span><span></span><span></span><span>3</span><span>4</span><span></span><span></span><span></span>
+                            <span>9</span><span></span><span></span><span>6</span><span></span><span>1</span><span></span><span></span><span>5</span>
+                            <span></span><span>2</span><span></span><span></span><span>9</span><span></span><span>3</span><span></span><span></span>
+                            <span>8</span><span></span><span>5</span><span></span><span>1</span><span></span><span>6</span><span></span><span>9</span>
+                            <span></span><span></span><span>3</span><span></span><span>7</span><span></span><span></span><span>2</span><span></span>
+                            <span>6</span><span></span><span></span><span>8</span><span></span><span></span><span>9</span><span></span><span></span>
+                            <span></span><span></span><span></span><span>4</span><span>2</span><span></span><span>7</span><span></span><span>3</span>
+                            <span>2</span><span></span><span></span><span>1</span><span></span><span></span><span></span><span></span><span>4</span>
+                        </div>
+                        <div class="pipeline">
+                            <span>OCR</span>
+                            <span>GRID</span>
+                            <span>CSP</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Sudoku Solver</h3>
+                        <p>Upload a Sudoku image, verify the recognized grid, and solve it with a backtracking CSP solver.</p>
+                        <ul><li>Backtracking</li><li>CSP</li><li>OCR</li><li>FastAPI</li></ul>
+                        <a class="project-link" href="/sudoku">Open demo</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="project-grid secondary-projects">
+                <article class="project-card">
+                    <div class="project-topline">
+                        <span class="project-index">P/02</span>
+                        <span class="project-state">Snapshot</span>
+                    </div>
+                    <div class="project-visual flow-visual" aria-hidden="true">
+                        <div class="flow-node">Telegram API</div>
+                        <div class="flow-node accent">Flask</div>
+                        <div class="flow-node">OpenAI API</div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Telegram AI Bot</h3>
+                        <p>A Telegram-based assistant project built around a Flask backend and Telegram API integration.</p>
+                        <ul><li>Flask</li><li>Telegram API</li><li>Python</li></ul>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-topline">
+                        <span class="project-index">P/03</span>
+                        <span class="project-state">Snapshot</span>
+                    </div>
+                    <div class="project-visual receipt-visual" aria-hidden="true">
+                        <div class="receipt-card">
+                            <strong>RECEIPT</strong>
+                            <span>ITEM 1  12.50</span>
+                            <span>ITEM 2   8.75</span>
+                            <i></i>
+                            <b>TOTAL  25.45</b>
+                        </div>
+                        <div class="json-card">{ total: 25.45 }</div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Expense Capture Assistant</h3>
+                        <p>A workflow concept for extracting structured information from receipts and turning it into usable data.</p>
+                        <ul><li>OCR</li><li>Workflow</li><li>Automation</li></ul>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-topline">
+                        <span class="project-index">P/04</span>
+                        <span class="project-state">Snapshot</span>
+                    </div>
+                    <div class="project-visual server-visual" aria-hidden="true">
+                        <div class="server-node">Cloudflare</div>
+                        <div class="server-node accent">nginx</div>
+                        <div class="server-node">Flask</div>
+                        <div class="server-node">Raspberry Pi</div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Raspberry Pi Server</h3>
+                        <p>A self-hosted server setup for learning deployment, Linux services, Flask apps, and practical backend operations.</p>
+                        <ul><li>Linux</li><li>Flask</li><li>nginx</li><li>Cloudflare</li></ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="content-section learning-section" id="learning" aria-labelledby="learning-title">
+            <div class="section-heading-row">
+                <div>
+                    <div class="section-label"><span>03</span> Currently learning</div>
+                    <h2 id="learning-title">Building stronger fundamentals.</h2>
+                </div>
+                <p>I use projects to connect theory with practical engineering and deployment experience.</p>
+            </div>
+            <div class="learning-grid">
+                <div><span>01</span><h3>Computer Vision</h3><p>Image processing, OCR workflows, grid detection, and practical recognition tasks.</p></div>
+                <div><span>02</span><h3>Backend APIs</h3><p>Flask, FastAPI, API design, data handling, and reliable project structure.</p></div>
+                <div><span>03</span><h3>Applied ML</h3><p>Core AI concepts and using models as part of useful software systems.</p></div>
+                <div><span>04</span><h3>Deployment</h3><p>Linux services, Raspberry Pi, nginx, Cloudflare, and shipping working tools.</p></div>
+            </div>
+        </section>
+
+        <section class="content-section skills-section" id="skills" aria-labelledby="skills-title">
+            <div class="section-heading-row">
+                <div>
+                    <div class="section-label"><span>04</span> Skills</div>
+                    <h2 id="skills-title">Tools I use and keep improving.</h2>
+                </div>
+            </div>
+            <div class="skills-grid">
+                <div><h3>AI & Data</h3><p>OpenAI API, computer vision, OCR, structured outputs, automation.</p></div>
+                <div><h3>Python Backend</h3><p>Python, Flask, FastAPI, APIs, scripts, local tools.</p></div>
+                <div><h3>Systems</h3><p>Linux basics, Raspberry Pi, nginx, Cloudflare, deployments.</p></div>
+                <div><h3>Languages</h3><p>English, German, Russian, Ukrainian.</p></div>
+            </div>
+        </section>
+
+        <section class="content-section contact-section" id="contact" aria-labelledby="contact-title">
+            <div class="section-label"><span>05</span> Contact</div>
+            <div class="contact-panel">
+                <div>
+                    <h2 id="contact-title">Want to build something practical?</h2>
+                    <p>I am open to collaboration, student projects, and AI/software ideas.</p>
+                </div>
+                <div class="contact-links">
+                    <a href="mailto:michael.fomenko.work@gmail.com">Email</a>
+                    <a href="https://github.com/1nsane-0" target="_blank" rel="noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/mykhailo-fomenko-759249338/" target="_blank" rel="noreferrer">LinkedIn</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/assets/portfolio/script.js"></script>
+</body>
+</html>
